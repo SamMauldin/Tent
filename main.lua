@@ -109,6 +109,9 @@ function chat()
 				fs.makeDir("/.tentsglock")
 				setText("Locked", main)
 			end
+		elseif cmd[1] == "shell" then
+			setText("Running shell", main)
+			shell.run("shell")
 		elseif cmd[1] == "update" then
 			setText("Updating...", main)
 			local fh = http.get(updateurl)
