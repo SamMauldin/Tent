@@ -107,6 +107,7 @@ function chat()
 			setText("Disconnected", main)
 		elseif cmd[1] == "lock" then
 			if fs.exists("/.tentsglock") then
+				fs.delete("/.tentsglock")
 				setText("Unlocked", main)
 			else
 				fs.makeDir("/.tentsglock")
@@ -146,7 +147,7 @@ function lock()
 				end
 			end
 			setText(name .. " connected", main)
-			if not sg.isInitiator() == "true" then
+			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
