@@ -4,6 +4,8 @@ local sgside = "top" -- Stargate side
 local glassside = "bottom" -- Terminal glass side
 -- End config
 
+local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
+
 local glass = peripheral.wrap(glassside)
 local sg = peripheral.wrap(sgside)
 
@@ -120,6 +122,18 @@ function chat()
 				fs.makeDir("/.tentsglock")
 				setText("Locked", main)
 			end
+		elseif cmd[1] == "update" then
+			setText("Updating...", main)
+			local fh = http.get(updateurl)
+			if fh then
+				fs.delete("/startup")
+				local startup = fs.open("/startup", "w")
+				startup.write(fh.readAll())
+				startup.close()
+				os.reboot()
+			else
+				setText("Update failed", main)
+			end
 		else
 			setText("Unknown command", main)
 		end
@@ -137,7 +151,6 @@ function lock()
 				end
 			end
 			setText(name .. " connected", main)
-			
 			if not sg.isInitiator() then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
@@ -148,3 +161,5 @@ function lock()
 		end
 	end
 end
+
+parallel.waitForAny(chat, lock)
