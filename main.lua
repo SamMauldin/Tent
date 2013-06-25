@@ -4,6 +4,9 @@ local sgside = "top" -- Stargate side
 local glassside = "bottom" -- Terminal glass side
 -- End config
 
+local oldPull = os.pullEvent
+os.pullEvent = os.pullEventRaw
+
 local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
 
 local glass = peripheral.wrap(glassside)
@@ -111,7 +114,9 @@ function chat()
 			end
 		elseif cmd[1] == "shell" then
 			setText("Running shell", main)
+			os.pullEvent = oldPull
 			shell.run("shell")
+			os.pullEvent = os.pullEventRaw
 		elseif cmd[1] == "update" then
 			setText("Updating...", main)
 			local fh = http.get(updateurl)
