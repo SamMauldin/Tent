@@ -80,7 +80,7 @@ end
 function chat()
 	while true do
 		local _, msg=os.pullEvent("chat_command")
-		local cmd = split(msg, " ")
+		local cmd = split(msg or "", " ")
 		if cmd[1] == "dial" then
 			local addr = cmd[2] or ""
 			if sgs[addr] then
