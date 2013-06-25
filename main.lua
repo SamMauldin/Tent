@@ -89,7 +89,7 @@ function chat()
 					setText("Connecting...", main)
 					sleep(20)
 					for i=1,10 do
-						setText(11-i, main)
+						setText("You have " .. 11-i .. " secs", main)
 						sleep(1)
 					end
 					sg.disconnect()
