@@ -143,7 +143,7 @@ end
 function lock()
 	while true do
 		sleep(10)
-		if sg.isConnected() then
+		if sg.isConnected() == "true" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
 				if v.add == sg.getDialledAddress() then
@@ -151,7 +151,7 @@ function lock()
 				end
 			end
 			setText(name .. " connected", main)
-			if not sg.isInitiator() then
+			if not sg.isInitiator() == "true" then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
