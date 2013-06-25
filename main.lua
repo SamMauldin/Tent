@@ -61,7 +61,7 @@ local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.7)
 
 local title = glass.addText(75, 25, "", col.textGray)
 title.setZIndex(5)
-local main = glass.addText(40, 40, "", col.blue)
+local main = glass.addText(40, 40, "", col.textGray)
 main.setZIndex(5)
 
 setText("Tent", title)
