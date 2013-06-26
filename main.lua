@@ -151,6 +151,8 @@ function lock()
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
+			else
+				print(sg.isInitiator())
 			end
 		else
 			setText("Nobody connected", main)
