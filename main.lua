@@ -80,6 +80,10 @@ if sgraw then
 	sgs = loadstring("return " .. sgraw.readAll())()
 end
 
+function queueClear(t)
+	os.queueEvent("tent_clear", os.clock() + t or 5)
+end
+
 function chat()
 	while true do
 		local _, msg=os.pullEvent("chat_command")
@@ -106,9 +110,11 @@ function chat()
 			else
 				setText("Improper address", main)
 			end
+			queueClear()
 		elseif cmd[1] == "disconnect" then
 			sg.disconnect()
 			setText("Disconnected", main)
+			queueClear()
 		elseif cmd[1] == "lock" then
 			if fs.exists("/.tentsglock") then
 				fs.delete("/.tentsglock")
@@ -117,11 +123,13 @@ function chat()
 				fs.makeDir("/.tentsglock")
 				setText("Locked", main)
 			end
+			queueClear()
 		elseif cmd[1] == "shell" then
-			setText("Running shell", main)
+			setText("Running shell, quit to resume", main)
 			os.pullEvent = oldPull
 			shell.run("shell")
 			os.pullEvent = os.pullEventRaw
+			queueClear()
 		elseif cmd[1] == "update" then
 			setText("Updating...", main)
 			local fh = http.get(updateurl)
@@ -133,9 +141,11 @@ function chat()
 				os.reboot()
 			else
 				setText("Update failed", main)
+				queueClear()
 			end
 		else
 			setText("Unknown command", main)
+			queueClear()
 		end
 	end
 end
@@ -162,4 +172,19 @@ function lock()
 	end
 end
 
-parallel.waitForAny(chat, lock)
+function clear()
+	local trigger = nil
+	local timer = os.startTimer(0.5)
+	while true do
+		local e, p = os.pullEvent()
+		if e == "tent_clear" then
+			trigger = p
+		elseif e == "timer" and p == timer then
+			timer = os.startTimer(0.5)
+		end
+		if trigger and os.clock() >= trigger then
+			setText("", main)
+		end
+end
+
+parallel.waitForAny(chat, lock, clear)
