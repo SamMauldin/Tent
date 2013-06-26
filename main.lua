@@ -64,7 +64,9 @@ local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.7)
 
 local title = glass.addText(75, 25, "", col.textGray)
 title.setZIndex(5)
-local main = glass.addText(40, 40, "", col.textGray)
+local status = glass.addText(40, 40, "", col.textGray)
+status.setZIndex(5)
+local main = glass.addText(40, 50, "", col.textGray)
 main.setZIndex(5)
 
 setText("Tent", title)
@@ -95,8 +97,8 @@ function chat()
 						setText("You have " .. 11-i .. " seconds left", main)
 						sleep(1)
 					end
-					setText("Disconnecting", main)
 					sg.disconnect()
+					setText("Disconnected", main)
 				else
 					setText("Connection failed", main)
 				end
@@ -147,14 +149,14 @@ function lock()
 					name = k
 				end
 			end
-			setText(name .. " connected", main)
+			setText(name .. " connected", status)
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
 			end
 		else
-			setText("Nobody connected", main)
+			setText("Nobody connected", status)
 		end
 	end
 end
