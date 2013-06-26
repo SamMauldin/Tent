@@ -185,6 +185,7 @@ function clear()
 		if trigger and os.clock() >= trigger then
 			setText("", main)
 		end
+	end
 end
 
 parallel.waitForAny(chat, lock, clear)
