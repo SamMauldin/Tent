@@ -80,6 +80,8 @@ if sgraw then
 	sgs = loadstring("return " .. sgraw.readAll())()
 end
 
+sgs.mine = {add = "AIXPNBA"}
+
 function queueClear(t)
 	os.queueEvent("tent_clear", os.clock() + (t or 5))
 end
