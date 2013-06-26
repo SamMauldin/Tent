@@ -87,7 +87,7 @@ function chat()
 				addr = sgs[addr].add
 			end
 			if string.len(addr) == 7 then
-				sg.connect(addr)
+				pcall(sg.connect, addr)
 				if sg.isConnected() then
 					setText("Connecting...", main)
 					sleep(20)
@@ -151,8 +151,6 @@ function lock()
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
-			else
-				print(sg.isInitiator())
 			end
 		else
 			setText("Nobody connected", main)
