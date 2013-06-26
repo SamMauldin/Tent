@@ -70,8 +70,8 @@ local main = glass.addText(40, 50, "", col.textGray)
 main.setZIndex(5)
 
 setText("Tent", title)
-setText("", status)
-setText("Loading", main)
+setText("Loading", status)
+setText("", main)
 
 local sgraw = http.get("http://imgood.hostoi.com/otherstuff/stargates")
 local sgs = {}
