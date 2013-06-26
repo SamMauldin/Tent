@@ -81,7 +81,7 @@ if sgraw then
 end
 
 function queueClear(t)
-	os.queueEvent("tent_clear", os.clock() + t or 5)
+	os.queueEvent("tent_clear", os.clock() + (t or 5))
 end
 
 function chat()
@@ -95,9 +95,10 @@ function chat()
 			end
 			if string.len(addr) == 7 then
 				pcall(sg.connect, addr)
+				sleep(1)
 				if sg.isConnected() then
 					setText("Connecting...", main)
-					sleep(20)
+					sleep(19)
 					for i=1,10 do
 						setText("You have " .. 11-i .. " seconds left", main)
 						sleep(1)
