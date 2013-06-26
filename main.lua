@@ -92,9 +92,10 @@ function chat()
 					setText("Connecting...", main)
 					sleep(20)
 					for i=1,10 do
-						setText("You have " .. 11-i .. " secs", main)
+						setText("You have " .. 11-i .. " seconds left", main)
 						sleep(1)
 					end
+					setText("Disconnecting", main)
 					sg.disconnect()
 				else
 					setText("Connection failed", main)
