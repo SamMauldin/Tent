@@ -81,6 +81,7 @@ if sgraw then
 end
 
 sgs.mine = {add = "AIXPNBA"}
+sgs.home = {add = "ELEMNBA"}
 
 function queueClear(t)
 	os.queueEvent("tent_clear", os.clock() + (t or 5))
