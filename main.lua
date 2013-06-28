@@ -172,6 +172,7 @@ end
 function lock()
 	while true do
 		sleep(2.5)
+		setText(textutils.formatTime(os.time()), title)
 		if sg.getDialledAddress() ~= "" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
