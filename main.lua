@@ -104,9 +104,10 @@ function chat()
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr)
 				setText("Validating...", main)
+				sg.disconnect()
 				pcall(sg.connect, addr)
 				sleep(1)
-				if sg.isConnected() == "true" then
+				if sg.getDialledAddress() == addr then
 					print("Dialed!")
 					setText("Connecting...", main)
 					sleep(19)
@@ -168,6 +169,7 @@ end
 function lock()
 	while true do
 		sleep(2.5)
+		print("Connected to " .. sg.getDialledAddress())
 		if sg.isConnected() == "true" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
