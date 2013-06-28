@@ -103,11 +103,13 @@ function chat()
 			end
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr)
+				setText("Validating...", main)
 				pcall(sg.connect, addr)
+				sleep(1)
 				if sg.isConnected() == "true" then
 					print("Dialed!")
 					setText("Connecting...", main)
-					sleep(20)
+					sleep(19)
 					for i=1,10 do
 						setText("You have " .. 11-i .. " seconds left", main)
 						sleep(1)
@@ -116,7 +118,6 @@ function chat()
 					setText("Disconnected", main)
 					print("Disconnected")
 				else
-					print(sg.isConnected())
 					setText("Connection failed", main)
 					print("Failed")
 				end
