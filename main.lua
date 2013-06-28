@@ -58,7 +58,10 @@ col.rain = 0x2e679f
 
 -- Boxes
 
-local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.7)
+local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.8)
+
+local left = glass.addBox(19, 19, 1, 50, col.blue, 0.8)
+local right = glass.addBox(157, 19, 1, 50, col.blue, 0.8)
 
 -- Text
 
@@ -70,7 +73,7 @@ local main = glass.addText(40, 50, "", col.textGray)
 main.setZIndex(5)
 
 setText("Tent", title)
-setText("Loading", status)
+setText("Loading...", status)
 setText("", main)
 
 local sgraw = http.get("http://imgood.hostoi.com/otherstuff/stargates")
@@ -102,7 +105,7 @@ function chat()
 				addr = sgs[addr].add
 			end
 			if string.len(addr) == 7 then
-				print("Trying to dial ".. addr)
+				print("Trying to dial ".. addr .. ".")
 				setText("Validating...", main)
 				sg.disconnect()
 				pcall(sg.connect, addr)
@@ -111,40 +114,40 @@ function chat()
 					print("Dialed!")
 					setText("Connecting...", main)
 					for i=1,17 do
-						setText(18-i .. " seconds to connection", main)
+						setText(18-i .. " seconds to connection.", main)
 						sleep(1)
 					end
 					for i=1,10 do
-						setText("You have " .. 11-i .. " seconds left", main)
+						setText("You have " .. 11-i .. " seconds left.", main)
 						sleep(1)
 					end
 					sg.disconnect()
-					setText("Disconnected", main)
+					setText("Disconnected.", main)
 					print("Disconnected")
 				else
-					setText("Connection failed", main)
+					setText("Connection failed.", main)
 					print("Failed")
 				end
 			else
-				setText("Improper address", main)
+				setText("Improper address.", main)
 			end
 			queueClear()
 		elseif cmd[1] == "disconnect" then
 			sg.disconnect()
-			setText("Disconnected", main)
-			print("Disconnected")
+			setText("Disconnected.", main)
+			print("Disconnected.")
 			queueClear()
 		elseif cmd[1] == "lock" then
 			if fs.exists("/.tentsglock") then
 				fs.delete("/.tentsglock")
-				setText("Unlocked", main)
+				setText("Unlocked.", main)
 			else
 				fs.makeDir("/.tentsglock")
-				setText("Locked", main)
+				setText("Locked.", main)
 			end
 			queueClear()
 		elseif cmd[1] == "shell" then
-			setText("Running shell, quit to resume", main)
+			setText("Running shell, quit to resume.", main)
 			os.pullEvent = oldPull
 			shell.run("shell")
 			os.pullEvent = os.pullEventRaw
@@ -159,11 +162,11 @@ function chat()
 				startup.close()
 				os.reboot()
 			else
-				setText("Update failed", main)
+				setText("Update failed.", main)
 				queueClear()
 			end
 		else
-			setText("Unknown command", main)
+			setText("Unknown command.", main)
 			queueClear()
 		end
 	end
@@ -181,9 +184,9 @@ function lock()
 				end
 			end
 			if sg.isConnected() == "true" then
-				setText(name .. " connected", status)
+				setText(name .. " connected.", status)
 			else
-				setText(name .. " dialing", status)
+				setText("Dialing " .. name .. ".", status)
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
@@ -191,7 +194,7 @@ function lock()
 				end
 			end
 		else
-			setText("Nobody connected", status)
+			setText("Nobody connected.", status)
 		end
 	end
 end
