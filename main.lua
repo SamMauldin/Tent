@@ -17,6 +17,16 @@ assert(sg)
 
 glass.clear()
 
+function rsleep(time)
+        os.startTimer(time)
+        os.startTimer(time+0.1)
+        local startTime = os.clock()
+        while true do
+                os.pullEvent()
+                if os.clock() >= startTime+time then return true end
+        end
+end
+
 function split(inputstr, sep)
         if sep == nil then
                 sep = "%s"
@@ -98,13 +108,12 @@ function chat()
 			end
 			if string.len(addr) == 7 then
 				pcall(sg.connect, addr)
-				sleep(1)
 				if sg.isConnected() then
 					setText("Connecting...", main)
-					sleep(19)
+					rsleep(19)
 					for i=1,10 do
 						setText("You have " .. 11-i .. " seconds left", main)
-						sleep(1)
+						rsleep(1)
 					end
 					sg.disconnect()
 					setText("Disconnected", main)
@@ -156,7 +165,7 @@ end
 
 function lock()
 	while true do
-		sleep(2.5)
+		rsleep(2.5)
 		if sg.isConnected() == "true" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
