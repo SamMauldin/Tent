@@ -180,7 +180,11 @@ function lock()
 					name = k
 				end
 			end
-			setText(name .. " connected", status)
+			if sg.isConnected() == "true" then
+				setText(name .. " connected", status)
+			else
+				setText(name .. " dialing", status)
+			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
