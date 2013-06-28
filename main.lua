@@ -116,6 +116,7 @@ function chat()
 					setText("Disconnected", main)
 					print("Disconnected")
 				else
+					print(sg.isConnected())
 					setText("Connection failed", main)
 					print("Failed")
 				end
