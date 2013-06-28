@@ -17,16 +17,6 @@ assert(sg)
 
 glass.clear()
 
-function rsleep(time)
-        os.startTimer(time)
-        os.startTimer(time+0.1)
-        local startTime = os.clock()
-        while true do
-                os.pullEvent()
-                if os.clock() >= startTime+time then return true end
-        end
-end
-
 function split(inputstr, sep)
         if sep == nil then
                 sep = "%s"
@@ -106,24 +96,28 @@ function chat()
 		local _, msg=os.pullEvent("chat_command")
 		local cmd = split(msg or "", " ")
 		if cmd[1] == "dial" then
+			stopClear()
 			local addr = cmd[2] or ""
 			if sgs[addr] then
 				addr = sgs[addr].add
 			end
 			if string.len(addr) == 7 then
-				stopClear()
+				print("Trying to dial ".. addr)
 				pcall(sg.connect, addr)
 				if sg.isConnected() == "true" then
+					print("Dialed!")
 					setText("Connecting...", main)
-					rsleep(19)
+					sleep(20)
 					for i=1,10 do
 						setText("You have " .. 11-i .. " seconds left", main)
-						rsleep(1)
+						sleep(1)
 					end
 					sg.disconnect()
 					setText("Disconnected", main)
+					print("Disconnected")
 				else
 					setText("Connection failed", main)
+					print("Failed")
 				end
 			else
 				setText("Improper address", main)
@@ -132,6 +126,7 @@ function chat()
 		elseif cmd[1] == "disconnect" then
 			sg.disconnect()
 			setText("Disconnected", main)
+			print("Disconnected")
 			queueClear()
 		elseif cmd[1] == "lock" then
 			if fs.exists("/.tentsglock") then
@@ -170,7 +165,7 @@ end
 
 function lock()
 	while true do
-		rsleep(2.5)
+		sleep(2.5)
 		if sg.isConnected() == "true" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
