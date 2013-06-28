@@ -1,6 +1,6 @@
 -- Tent by Sxw1212
 -- Config
-local sgside = "top" -- Stargate side
+local sgside = "stargate_base_10" -- Stargate side
 local glassside = "bottom" -- Terminal glass side
 -- End config
 
