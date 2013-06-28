@@ -111,7 +111,7 @@ function chat()
 					print("Dialed!")
 					setText("Connecting...", main)
 					for i=1,17 do
-						setText(17-i .. " seconds to connection", main)
+						setText(18-i .. " seconds to connection", main)
 						sleep(1)
 					end
 					for i=1,10 do
