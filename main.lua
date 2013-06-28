@@ -113,7 +113,7 @@ function chat()
 			if string.len(addr) == 7 then
 				stopClear()
 				pcall(sg.connect, addr)
-				if sg.isConnected() then
+				if sg.isConnected() == "true" then
 					setText("Connecting...", main)
 					rsleep(19)
 					for i=1,10 do
