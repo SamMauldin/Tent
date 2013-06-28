@@ -171,7 +171,7 @@ end
 
 function lock()
 	while true do
-		sleep(2.5)
+		sleep(1)
 		setText(textutils.formatTime(os.time()), title)
 		if sg.getDialledAddress() ~= "" then
 			local name = sg.getDialledAddress()
