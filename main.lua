@@ -169,8 +169,7 @@ end
 function lock()
 	while true do
 		sleep(2.5)
-		print("Connected to " .. sg.getDialledAddress())
-		if sg.isConnected() == "true" then
+		if sg.getDialledAddress() ~= "" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
 				if v.add == sg.getDialledAddress() then
