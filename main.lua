@@ -58,7 +58,7 @@ col.rain = 0x2e679f
 
 -- Boxes
 
-local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.5)
+local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.7)
 
 -- Text
 
