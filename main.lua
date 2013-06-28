@@ -110,8 +110,8 @@ function chat()
 				if sg.getDialledAddress() == addr then
 					print("Dialed!")
 					setText("Connecting...", main)
-					for i=1,19 do
-						setText(19-i .. " seconds to connection", main)
+					for i=1,17 do
+						setText(17-i .. " seconds to connection", main)
 						sleep(1)
 					end
 					for i=1,10 do
