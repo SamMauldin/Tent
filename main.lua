@@ -97,6 +97,10 @@ function queueClear(t)
 	os.queueEvent("tent_clear", os.clock() + (t or 5))
 end
 
+function stopClear()
+	os.queueEvent("tent_clear", nil)
+end
+
 function chat()
 	while true do
 		local _, msg=os.pullEvent("chat_command")
@@ -107,6 +111,7 @@ function chat()
 				addr = sgs[addr].add
 			end
 			if string.len(addr) == 7 then
+				stopClear()
 				pcall(sg.connect, addr)
 				if sg.isConnected() then
 					setText("Connecting...", main)
