@@ -60,8 +60,8 @@ col.rain = 0x2e679f
 
 local disp = glass.addBox(20, 20, 136, 50, col.gray, 0.8)
 
-local left = glass.addBox(19, 19, 1, 62, col.blue, 0.8)
-local right = glass.addBox(156, 19, 1, 62, col.blue, 0.8)
+local left = glass.addBox(19, 19, 1, 52, col.blue, 0.8)
+local right = glass.addBox(156, 19, 1, 52, col.blue, 0.8)
 
 -- Text
 
