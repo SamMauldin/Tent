@@ -228,7 +228,7 @@ function users()
 				if string.len(v) > 5 then
 					username = string.sub(v, 0, 5)
 				end
-				usertext = username .. ", "
+				usertext = usertext .. username .. ", "
 			end
 			setText("Users: " .. usertext, notify)
 		end
