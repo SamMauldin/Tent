@@ -218,7 +218,7 @@ function users()
 	local shortened = {
 		Sxw1212 = "Sxw",
 		Wired2coffee = "Wired",
-		Tehpers = "Teh"
+		TehPers = "Teh"
 	}
 	local users = {}
 	while true do
