@@ -218,6 +218,10 @@ function clear()
 end
 
 function users()
+	local shortened = {
+		Sxw1212 = "Sxw",
+		Wired2coffee = "Wired"
+	}
 	local users = {}
 	while true do
 		if users ~= glass.getUsers() then
@@ -226,7 +230,7 @@ function users()
 			for k, v in pairs(users) do
 				local username = v
 				if string.len(v) > 5 then
-					username = string.sub(v, 0, 5)
+					username = shortened[v] or string.sub(v, 0, 5)
 				end
 				usertext = usertext .. username .. ", "
 			end
