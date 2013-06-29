@@ -108,12 +108,12 @@ function chat()
 				setText("Validating...", main)
 				sg.disconnect()
 				pcall(sg.connect, addr)
-				sleep(1)
+				sleep(5)
 				if sg.getDialledAddress() == addr then
 					print("Dialed!")
 					setText("Connecting...", main)
-					for i=1,17 do
-						setText(18-i .. " seconds to connection.", main)
+					for i=1,14 do
+						setText(15-i .. " seconds to connection.", main)
 						sleep(1)
 					end
 					for i=1,10 do
