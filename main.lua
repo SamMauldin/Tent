@@ -222,7 +222,7 @@ function users()
 	while true do
 		if users ~= glass.getUsers() then
 			users = glass.getUsers()
-			local usertext = users.concat(", ")
+			local usertext = table.concat(users, ", ")
 			setText("Users: " .. usertext .. ".", notify)
 		end
 		sleep(10)
