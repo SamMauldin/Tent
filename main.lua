@@ -58,20 +58,20 @@ col.rain = 0x2e679f
 
 -- Boxes
 
-local disp = glass.addBox(20, 20, 136, 50, col.gray, 0.8)
+local disp = glass.addBox(20, 20, 146, 50, col.gray, 0.8)
 
 local left = glass.addBox(19, 19, 1, 52, col.blue, 0.8)
-local right = glass.addBox(156, 19, 1, 52, col.blue, 0.8)
+local right = glass.addBox(166, 19, 1, 52, col.blue, 0.8)
 
 -- Text
 
-local title = glass.addText(75, 25, "", col.textGray)
+local title = glass.addText(80, 25, "", col.textGray)
 title.setZIndex(5)
-local status = glass.addText(40, 35, "", col.textGray)
+local status = glass.addText(45, 35, "", col.textGray)
 status.setZIndex(5)
-local main = glass.addText(40, 45, "", col.textGray)
+local main = glass.addText(45, 45, "", col.textGray)
 main.setZIndex(5)
-local notify = glass.addText(40, 55, "", col.textGray)
+local notify = glass.addText(45, 55, "", col.textGray)
 notify.setZIndex(5)
 
 setText("Tent", title)
