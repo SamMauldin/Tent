@@ -25,5 +25,7 @@
 		
 	["end"] = "BGWXMCA",
 	
-	["slayer"] = "EQMQNBA"
+	["slayer"] = "EQMQNBA",
+	
+	["jamco"] = "XXATNBA"
 }
