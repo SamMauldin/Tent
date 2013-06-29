@@ -58,10 +58,10 @@ col.rain = 0x2e679f
 
 -- Boxes
 
-local disp = glass.addBox(20, 20, 136, 48, col.gray, 0.8)
+local disp = glass.addBox(20, 20, 136, 60, col.gray, 0.8)
 
-local left = glass.addBox(19, 19, 1, 50, col.blue, 0.8)
-local right = glass.addBox(156, 19, 1, 50, col.blue, 0.8)
+local left = glass.addBox(19, 19, 1, 62, col.blue, 0.8)
+local right = glass.addBox(156, 19, 1, 62, col.blue, 0.8)
 
 -- Text
 
@@ -69,8 +69,10 @@ local title = glass.addText(75, 25, "", col.textGray)
 title.setZIndex(5)
 local status = glass.addText(40, 35, "", col.textGray)
 status.setZIndex(5)
-local main = glass.addText(40, 50, "", col.textGray)
+local main = glass.addText(40, 45, "", col.textGray)
 main.setZIndex(5)
+local notify = glass.addText(40, 55, "", col.textGray)
+notify.setZIndex(5)
 
 setText("Tent", title)
 setText("Loading...", status)
@@ -212,6 +214,18 @@ function clear()
 		if trigger and os.clock() >= trigger then
 			setText("", main)
 		end
+	end
+end
+
+function users()
+	local users = {}
+	while true do
+		if users != terminalGlassesBridge.getUsers() then
+			users = terminalGlassesBridge.getUsers()
+			local usertext = users.concat(", ")
+			setText("Users: " .. usertext .. ".", notify)
+		end
+		sleep(10)
 	end
 end
 
