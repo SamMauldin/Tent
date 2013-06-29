@@ -220,7 +220,8 @@ end
 function users()
 	local shortened = {
 		Sxw1212 = "Sxw",
-		Wired2coffee = "Wired"
+		Wired2coffee = "Wired",
+		Tehpers = "Teh"
 	}
 	local users = {}
 	while true do
