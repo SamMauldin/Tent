@@ -222,7 +222,14 @@ function users()
 	while true do
 		if users ~= glass.getUsers() then
 			users = glass.getUsers()
-			local usertext = table.concat(users, ", ")
+			local usertext = ""
+			for k, v in pairs(users) do
+				local username = v
+				if string.len(v) > 5 then
+					username = string.sub(v, 0, 5)
+				end
+				usertext = usertext .. ", "
+			end
 			setText("Users: " .. usertext .. ".", notify)
 		end
 		sleep(10)
