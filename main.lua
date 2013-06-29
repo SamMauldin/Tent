@@ -229,4 +229,4 @@ function users()
 	end
 end
 
-parallel.waitForAny(chat, lock, clear)
+parallel.waitForAny(chat, lock, clear, users)
