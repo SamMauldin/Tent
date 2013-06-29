@@ -78,15 +78,12 @@ setText("Tent", title)
 setText("Loading...", status)
 setText("", main)
 
-local sgraw = http.get("http://imgood.hostoi.com/otherstuff/stargates")
+local sgraw = http.get("https://raw.github.com/Sxw1212/Tent/master/sgs.lua")
 local sgs = {}
 
 if sgraw then
 	sgs = loadstring("return " .. sgraw.readAll())()
 end
-
-sgs.mine = {add = "AIXPNBA"}
-sgs.home = {add = "ELEMNBA"}
 
 function queueClear(t)
 	os.queueEvent("tent_clear", os.clock() + (t or 5))
@@ -104,7 +101,7 @@ function chat()
 			stopClear()
 			local addr = cmd[2] or ""
 			if sgs[addr] then
-				addr = sgs[addr].add
+				addr = sgs[addr]
 			end
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr .. ".")
@@ -181,7 +178,7 @@ function lock()
 		if sg.getDialledAddress() ~= "" then
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
-				if v.add == sg.getDialledAddress() then
+				if v == sg.getDialledAddress() then
 					name = k
 				end
 			end
