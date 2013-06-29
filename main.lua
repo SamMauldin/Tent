@@ -220,7 +220,7 @@ end
 function users()
 	local users = {}
 	while true do
-		if users != terminalGlassesBridge.getUsers() then
+		if users ~= terminalGlassesBridge.getUsers() then
 			users = terminalGlassesBridge.getUsers()
 			local usertext = users.concat(", ")
 			setText("Users: " .. usertext .. ".", notify)
