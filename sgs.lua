@@ -6,5 +6,6 @@
 	["karel"] = "NXEBNFA",
 	["mud"] = "YKFANFA",
 	["wii"] = "HFUBNFA",
-	["std"] = "UXFZMFA"
+	["std"] = "UXFZMFA",
+	["eor"] = "SIBNOBA"
 }
