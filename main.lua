@@ -96,7 +96,8 @@ end
 
 function chat()
 	while true do
-		local _, msg=os.pullEvent("chat_command")
+		local _, msg, user=os.pullEvent("chat_command")
+		if user == master then
 		local cmd = split(msg or "", " ")
 		if cmd[1] == "dial" then
 			stopClear()
@@ -169,6 +170,7 @@ function chat()
 			setText("Unknown command.", main)
 			queueClear()
 		end
+	end
 	end
 end
 
