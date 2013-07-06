@@ -3,5 +3,8 @@
 	["snake"] = "BQPANFA",
 	["master"] = "GIAANFA",
 	["fun"] = "GLFANFA",
-	["karel"] = "NXEBNFA"
+	["karel"] = "NXEBNFA",
+	["mud"] = "YKFANFA",
+	["wii"] = "HFUBNFA",
+	["std"] = "UXFZMFA"
 }
