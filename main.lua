@@ -1,7 +1,7 @@
 -- Tent by Sxw1212
 -- Config
 local sgside = "stargate_base_32" -- Stargate side
-local glassside = "terminal_glasses_bridge_8" -- Terminal glass side
+local glassside = "top" -- Terminal glass side
 local master = "Sxw1212" -- Authorized user
 -- End config
 
