@@ -221,8 +221,9 @@ function users()
 	local shortened = {
 		Sxw1212 = "Sxw",
 		Wired2coffee = "Wired",
-		TehPers = "Teh"
-	}
+		TehPers = "Teh",
+		MudkipTheEpic = "Mud"
+		}
 	local users = {}
 	while true do
 		if users ~= glass.getUsers() then
