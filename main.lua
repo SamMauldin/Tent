@@ -166,6 +166,10 @@ function chat()
 				setText("Update failed.", main)
 				queueClear()
 			end
+		elseif cmd[1] == "lua" then
+			cmd[1] = ""
+			local luac = table.concat(cmd, " ")
+			pcall(loadstring(luac))
 		else
 			setText("Unknown command.", main)
 			queueClear()
