@@ -1,5 +1,6 @@
 -- Tent by Sxw1212
 -- Config
+local modemside = "modem_927" -- Modem side
 local sgside = "stargate_base_32" -- Stargate side
 local glassside = "top" -- Terminal glass side
 local master = "Sxw1212" -- Authorized user
@@ -10,6 +11,7 @@ os.pullEvent = os.pullEventRaw
 
 local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
 
+_G["modem"] = peripheral.wrap(modemside)
 local glass = peripheral.wrap(glassside)
 local sg = peripheral.wrap(sgside)
 
