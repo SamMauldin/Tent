@@ -9,5 +9,6 @@
 	["mud"] = "YKFANFA",
 	["wii"] = "HFUBNFA",
 	["std"] = "UXFZMFA",
-	["eor"] = "SIBNOBA"
+	["eor"] = "SIBNOBA",
+	["ds"] = "CDQZMFA"
 }
