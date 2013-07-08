@@ -10,5 +10,6 @@
 	["wii"] = "HFUBNFA",
 	["std"] = "UXFZMFA",
 	["eor"] = "SIBNOBA",
-	["ds"] = "CDQZMFA"
+	["ds"] = "CDQZMFA",
+	["casino"] = "CESVMBA"
 }
