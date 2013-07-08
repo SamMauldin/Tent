@@ -1,6 +1,7 @@
 {
 	["sxw"] = "SKFANFA",
-	["sxw2"] = "BAJDNBA",
+	["sxw2"] = "DIAANFA",
+	["sxwfb"] = "BAJDNBA",
 	["snake"] = "BQPANFA",
 	["master"] = "GIAANFA",
 	["fun"] = "GLFANFA",
