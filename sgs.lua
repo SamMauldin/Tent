@@ -4,7 +4,7 @@
 	["sxwfb"] = "BAJDNBA",
 	["snake"] = "BQPANFA",
 	["master"] = "GIAANFA",
-	["fun"] = "GLFANFA",
+	["fun"] = "RKFANFA",
 	["karel"] = "NXEBNFA",
 	["mud"] = "YKFANFA",
 	["wii"] = "HFUBNFA",
