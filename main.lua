@@ -118,10 +118,9 @@ function chat()
 				setText("Validating...", main)
 				sg.disconnect()
 				pcall(sg.connect, addr)
-				sleep(5)
+				sleep(3)
 				if sg.getDialledAddress() == addr then
 					print("Dialed!")
-					setText("Connecting...", main)
 				else
 					setText("Connection failed.", main)
 					print("Failed")
