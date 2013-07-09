@@ -172,7 +172,7 @@ end
 function lock()
 	local stime = nil
 	while true do
-		sleep(0)
+		sleep(0.5)
 		if sg.getDialledAddress() ~= "" then
 			if not stime then
 				stime = os.clock() + 20
@@ -186,7 +186,7 @@ function lock()
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 			else
-				setText("Dialing " .. name .. " - " .. stime - os.clock(), status)
+				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
