@@ -192,11 +192,11 @@ function lock()
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 				monitor.clear()
-				montior.write("--")
+				monitor.write("--")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.clear()
-				montior.write(math.ceil(stime - os.clock()))
+				monitor.write(math.ceil(stime - os.clock()))
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
