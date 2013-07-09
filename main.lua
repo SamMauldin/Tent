@@ -174,10 +174,14 @@ function chat()
 end
 
 function lock()
+	local stime = nil
 	while true do
-		sleep(1)
+		sleep(0.5)
 		setText(textutils.formatTime(os.time()), title)
 		if sg.getDialledAddress() ~= "" then
+			if not stime then
+				stime = os.clock() + 17
+			end
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
 				if v == sg.getDialledAddress() then
@@ -187,7 +191,7 @@ function lock()
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 			else
-				setText("Dialing " .. name .. ".", status)
+				setText("Dialing " .. name .. " - " .. stime - os.clock(), status)
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
@@ -196,6 +200,7 @@ function lock()
 			end
 		else
 			setText("Nobody connected.", status)
+			stime = nil
 		end
 	end
 end
