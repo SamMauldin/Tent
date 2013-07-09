@@ -198,7 +198,7 @@ function lock()
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				monitor.write("--" .. math.ceil(stime - os.clock()) .. "--")
+				monitor.write("--" .. math.ceil(stime - os.clock()) .. "---")
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
