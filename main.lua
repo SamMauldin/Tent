@@ -192,10 +192,12 @@ function lock()
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 				monitor.clear()
+				monitor.setCursorPos(1, 1)
 				monitor.write("--")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.clear()
+				monitor.setCursorPos(1, 1)
 				monitor.write(math.ceil(stime - os.clock()))
 			end
 			if sg.isInitiator() == "false" then
@@ -206,6 +208,7 @@ function lock()
 		else
 			setText("Nobody connected.", status)
 			monitor.clear()
+			monitor.setCursorPos(1, 1)
 			monitor.write("--")
 			stime = nil
 		end
