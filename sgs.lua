@@ -11,5 +11,6 @@
 	["std"] = "UXFZMFA",
 	["eor"] = "SIBNOBA",
 	["ds"] = "CDQZMFA",
-	["casino"] = "CESVMBA"
+	["casino"] = "CESVMBA",
+	["gold"] = "RMNLOBA"
 }
