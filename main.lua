@@ -1,6 +1,6 @@
 -- Tent by Sxw1212
 -- Config
-local monitorside = "monitor_41" -- Monitor side
+local monitorside = "monitor_42" -- Monitor side
 local modemside = "modem_927" -- Modem side
 local sgside = "stargate_base_32" -- Stargate side
 local glassside = "top" -- Terminal glass side
