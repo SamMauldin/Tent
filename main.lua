@@ -175,7 +175,7 @@ function lock()
 		sleep(0)
 		if sg.getDialledAddress() ~= "" then
 			if not stime then
-				stime = os.clock() + 16.5
+				stime = os.clock() + 16
 			end
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
