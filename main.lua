@@ -1,5 +1,6 @@
 -- Tent by Sxw1212
 -- Config
+local monitorside = "monitor_41" -- Monitor side
 local modemside = "modem_927" -- Modem side
 local sgside = "stargate_base_32" -- Stargate side
 local glassside = "top" -- Terminal glass side
@@ -14,9 +15,14 @@ local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
 _G["modem"] = peripheral.wrap(modemside)
 local glass = peripheral.wrap(glassside)
 local sg = peripheral.wrap(sgside)
+local monitor = peripheral.wrap(monitorside)
 
 assert(glass)
 assert(sg)
+assert(monitor)
+
+monitor.setTextScale(5)
+monitor.clear()
 
 glass.clear()
 
@@ -185,8 +191,12 @@ function lock()
 			end
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
+				monitor.clear()
+				montior.write("--")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
+				monitor.clear()
+				montior.write(math.ceil(stime - os.clock()))
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
@@ -195,6 +205,8 @@ function lock()
 			end
 		else
 			setText("Nobody connected.", status)
+			monitor.clear()
+			montior.write("--")
 			stime = nil
 		end
 	end
