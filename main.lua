@@ -193,7 +193,7 @@ function lock()
 				setText(name .. " connected.", status)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				monitor.write("------")
+				monitor.write("-CONN-")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.clear()
@@ -209,7 +209,7 @@ function lock()
 			setText("Nobody connected.", status)
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
-			monitor.write("------")
+			monitor.write("-IDLE-")
 			stime = nil
 		end
 	end
