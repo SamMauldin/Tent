@@ -206,7 +206,7 @@ function lock()
 		else
 			setText("Nobody connected.", status)
 			monitor.clear()
-			montior.write("--")
+			monitor.write("--")
 			stime = nil
 		end
 	end
