@@ -172,7 +172,7 @@ end
 function lock()
 	local stime = nil
 	while true do
-		sleep(0.5)
+		sleep(0)
 		setText(textutils.formatTime(os.time()), title)
 		if sg.getDialledAddress() ~= "" then
 			if not stime then
