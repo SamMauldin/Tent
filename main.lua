@@ -176,7 +176,7 @@ function lock()
 		setText(textutils.formatTime(os.time()), title)
 		if sg.getDialledAddress() ~= "" then
 			if not stime then
-				stime = os.clock() + 17
+				stime = os.clock() + 16.5
 			end
 			local name = sg.getDialledAddress()
 			for k,v in pairs(sgs) do
