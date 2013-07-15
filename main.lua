@@ -193,7 +193,7 @@ function lock()
 				monitor.setBackgroundColor(colors.lime)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				monitor.write("-CONN-")
+				monitor.write("Active")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.setBackgroundColor(colors.blue)
@@ -215,7 +215,7 @@ function lock()
 			monitor.setBackgroundColor(colors.red)
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
-			monitor.write("-IDLE-")
+			monitor.write("-Idle-")
 			stime = nil
 		end
 	end
