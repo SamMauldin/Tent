@@ -13,5 +13,6 @@
 	["ds"] = "CDQZMFA",
 	["casino"] = "CESVMBA",
 	["gold"] = "RNMLOBA",
-	["1lann"] = "SDSVMBA"
+	["1lann"] = "SDSVMBA",
+	["pixel"] = "LEXVMBA"
 }
