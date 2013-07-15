@@ -80,8 +80,9 @@ local status = glass.addText(45, 35, "", col.textGray)
 status.setZIndex(5)
 local main = glass.addText(45, 45, "", col.textGray)
 main.setZIndex(5)
-local notify = glass.addText(45, 55, "", col.textGray)
-notify.setZIndex(5)
+-- xD
+local copyright = glass.addText(45, 55, "(c) 2013 Sxw1212", col.textGray)
+copyright.setZIndex(5)
 
 setText("Tent", title)
 setText("Loading...", status)
@@ -92,6 +93,35 @@ local sgs = {}
 
 if sgraw then
 	sgs = loadstring("return " .. sgraw.readAll())()
+end
+
+function toAddr(alias, ret)
+	for k,v in pairs(sgs) do
+		if k == alias or v[1] == alias then
+			return v[2]
+		end
+	end
+	if ret then
+		return alias
+	end
+end
+
+function toShort(addr)
+	for k,v in pairs(sgs) do
+		if v[1] == addr then
+			return k
+		end
+	end
+	return nil
+end
+
+function toLong(addr)
+	for k,v in pairs(sgs) do
+		if v[1] == addr then
+			return v[2]
+		end
+	end
+	return nil
 end
 
 function queueClear(t)
@@ -110,9 +140,7 @@ function chat()
 		if cmd[1] == "dial" then
 			stopClear()
 			local addr = cmd[2] or ""
-			if sgs[addr] then
-				addr = sgs[addr]
-			end
+			addr = toAddr(addr)
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr .. ".")
 				setText("Validating...", main)
@@ -183,11 +211,7 @@ function lock()
 				stime = os.clock() + 17
 			end
 			local name = sg.getDialledAddress()
-			for k,v in pairs(sgs) do
-				if v == sg.getDialledAddress() then
-					name = k
-				end
-			end
+			name = toShort(name)
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 				monitor.setBackgroundColor(colors.lime)
@@ -237,29 +261,4 @@ function clear()
 	end
 end
 
-function users()
-	local shortened = {
-		Sxw1212 = "Sxw",
-		Wired2coffee = "Wired",
-		TehPers = "Teh",
-		MudkipTheEpic = "Mud"
-		}
-	local users = {}
-	while true do
-		if users ~= glass.getUsers() then
-			users = glass.getUsers()
-			local usertext = ""
-			for k, v in pairs(users) do
-				local username = v
-				if string.len(v) > 5 then
-					username = shortened[v] or string.sub(v, 0, 5)
-				end
-				usertext = usertext .. username .. ", "
-			end
-			setText("Users: " .. usertext, notify)
-		end
-		sleep(10)
-	end
-end
-
-parallel.waitForAny(chat, lock, clear, users)
+parallel.waitForAny(chat, lock, clear)
