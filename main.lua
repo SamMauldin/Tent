@@ -190,11 +190,13 @@ function lock()
 			end
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
+				monitor.setBackgroundColor(colors.lime)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
 				monitor.write("-CONN-")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
+				monitor.setBackgroundColor(colors.blue)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
 				local time = math.ceil(stime - os.clock()) .. ""
@@ -210,6 +212,7 @@ function lock()
 			end
 		else
 			setText("Nobody connected.", status)
+			monitor.setBackgroundColor(colors.red)
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
 			monitor.write("-IDLE-")
