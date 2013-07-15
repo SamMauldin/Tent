@@ -1,6 +1,6 @@
 -- Tent by Sxw1212
 -- Config
-local cfg = {monitor = "", modem = "", sg = "", glass = "", sgs = "https://raw.github.com/Sxw1212/Tent/master/sgs.lua"}
+local cfg = {master = "", monitor = "", modem = "", sg = "", glass = "", sgs = "https://raw.github.com/Sxw1212/Tent/master/sgs.lua"}
 if fs.exists("/tentconfig") then
 	local fh = fs.open("/tentconfig", "r")
 	cfg = textutils.unserialize(fh.readAll())
@@ -22,11 +22,13 @@ _G["modem"] = peripheral.wrap(cfg.modem)
 local glass = peripheral.wrap(cfg.glass)
 local sg = peripheral.wrap(cfg.sg)
 local monitor = peripheral.wrap(cfg.monitor)
+master = cfg.master
 
 assert(glass)
 assert(sg)
 assert(monitor)
 assert(modem)
+assert(master)
 
 monitor.setTextScale(5)
 monitor.clear()
@@ -147,7 +149,7 @@ function chat()
 		if cmd[1] == "dial" then
 			stopClear()
 			local addr = cmd[2] or ""
-			addr = toAddr(addr)
+			addr = toAddr(addr, true)
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr .. ".")
 				setText("Validating...", main)
