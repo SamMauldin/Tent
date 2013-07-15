@@ -1,10 +1,16 @@
 -- Tent by Sxw1212
 -- Config
-local monitorside = "monitor_42" -- Monitor side
-local modemside = "modem_927" -- Modem side
-local sgside = "stargate_base_32" -- Stargate side
-local glassside = "top" -- Terminal glass side
-local master = "Sxw1212" -- Authorized user
+local cfg = {monitor = "", modem = "", sg = "", glass = "", sgs = "https://raw.github.com/Sxw1212/Tent/master/sgs.lua"}
+if fs.exists("/tentconfig") then
+	local fh = fs.open("/tentconfig", "r")
+	cfg = textutils.unserialize(fh.readAll())
+	fh.close()
+else
+	local fh = fs.open("/tentconfig", "w")
+	fh.write(textutils.serialize(cfg))
+	fh.close()
+	error("Please edit the config.")
+end
 -- End config
 
 local oldPull = os.pullEvent
@@ -12,14 +18,15 @@ os.pullEvent = os.pullEventRaw
 
 local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
 
-_G["modem"] = peripheral.wrap(modemside)
-local glass = peripheral.wrap(glassside)
-local sg = peripheral.wrap(sgside)
-local monitor = peripheral.wrap(monitorside)
+_G["modem"] = peripheral.wrap(cfg.modem)
+local glass = peripheral.wrap(cfg.glass)
+local sg = peripheral.wrap(cfg.sg)
+local monitor = peripheral.wrap(cfg.monitor)
 
 assert(glass)
 assert(sg)
 assert(monitor)
+assert(modem)
 
 monitor.setTextScale(5)
 monitor.clear()
@@ -88,7 +95,7 @@ setText("Tent", title)
 setText("Loading...", status)
 setText("", main)
 
-local sgraw = http.get("https://raw.github.com/Sxw1212/Tent/master/sgs.lua")
+local sgraw = http.get(cfg.sgs)
 local sgs = {}
 
 if sgraw then
