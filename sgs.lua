@@ -12,5 +12,6 @@
 	["eor"] = "SIBNOBA",
 	["ds"] = "CDQZMFA",
 	["casino"] = "CESVMBA",
-	["gold"] = "RNMLOBA"
+	["gold"] = "RNMLOBA",
+	["1lann"] = "SDSVMBA"
 }
