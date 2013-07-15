@@ -14,5 +14,6 @@
 	["casino"] = "CESVMBA",
 	["gold"] = "RNMLOBA",
 	["1lann"] = "SDSVMBA",
-	["pixel"] = "LEXVMBA"
+	["pixel"] = "LEXVMBA",
+	["tripy"] = "APOSMBA"
 }
