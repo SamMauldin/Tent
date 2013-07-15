@@ -1,4 +1,6 @@
 -- Tent by Sxw1212
+-- Copyright (c) 2013 Sxw1212
+-- All rights reserved
 -- Config
 local cfg = {master = "", monitor = "", modem = "", sg = "", glass = "", sgs = "https://raw.github.com/Sxw1212/Tent/master/sgs.lua"}
 if fs.exists("/tentconfig") then
