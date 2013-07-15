@@ -123,7 +123,7 @@ function toShort(addr)
 			return k
 		end
 	end
-	return nil
+	return addr
 end
 
 function toLong(addr)
@@ -132,7 +132,7 @@ function toLong(addr)
 			return v[2]
 		end
 	end
-	return nil
+	return addr
 end
 
 function queueClear(t)
