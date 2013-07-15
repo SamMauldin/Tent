@@ -228,7 +228,9 @@ function lock()
 				monitor.setBackgroundColor(colors.lime)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				monitor.write("Active")
+				monitor.write("--Active--")
+				monitor.setCursorPos(1, 2)
+				monitor.write("-" .. sg.getDialledAddress() .. "-")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.setBackgroundColor(colors.blue)
@@ -238,7 +240,9 @@ function lock()
 				if string.len(time) == 1 then
 					time = "0" .. time
 				end
-				monitor.write("--" .. time .. "--")
+				monitor.write("-In-" .. time .. "s---")
+				monitor.setCursorPos(1, 2)
+				monitor.write("-" .. sg.getDialledAddress() .. "-")
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
@@ -250,7 +254,9 @@ function lock()
 			monitor.setBackgroundColor(colors.red)
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
-			monitor.write("-Idle-")
+			monitor.write("---Idle---")
+			monitor.setCursorPos(1, 2)
+			monitor.write("-Nobody-")
 			stime = nil
 		end
 	end
