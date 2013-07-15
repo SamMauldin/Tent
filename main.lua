@@ -221,8 +221,8 @@ function lock()
 			if not stime then
 				stime = os.clock() + 17
 			end
-			local name = sg.getDialledAddress()
-			name = toShort(name)
+			local addr = sg.getDialledAddress()
+			name = toShort(addr)
 			if sg.isConnected() == "true" then
 				setText(name .. " connected.", status)
 				monitor.setBackgroundColor(colors.lime)
