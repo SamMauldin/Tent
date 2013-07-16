@@ -119,7 +119,7 @@ end
 
 function toShort(addr)
 	for k,v in pairs(sgs) do
-		if v[1] == addr then
+		if v[2] == addr then
 			return k
 		end
 	end
@@ -128,8 +128,8 @@ end
 
 function toLong(addr)
 	for k,v in pairs(sgs) do
-		if v[1] == addr then
-			return v[2]
+		if v[2] == addr then
+			return v[1]
 		end
 	end
 	return addr
