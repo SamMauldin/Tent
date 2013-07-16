@@ -32,7 +32,7 @@ assert(monitor)
 assert(modem)
 assert(master)
 
-monitor.setTextScale(5)
+monitor.setTextScale(2.5)
 monitor.clear()
 
 glass.clear()
