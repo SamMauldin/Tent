@@ -1,3 +1,4 @@
 {
-	["base"] = {"Sxw1212", "RQJMNBA"}
+	["base"] = {"Sxw1212", "RQJMNBA"},
+	["jacob"] = {"Enderdeath", "PQJMNBA"}
 }
