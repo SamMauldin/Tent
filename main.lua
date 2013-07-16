@@ -230,7 +230,7 @@ function lock()
 				monitor.setCursorPos(1, 1)
 				monitor.write("--Active--")
 				monitor.setCursorPos(1, 2)
-				monitor.write("-" .. sg.getDialledAddress() .. "-")
+				monitor.write("--" .. sg.getDialledAddress() .. "-")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.setBackgroundColor(colors.blue)
@@ -240,7 +240,7 @@ function lock()
 				if string.len(time) == 1 then
 					time = "0" .. time
 				end
-				monitor.write("-In-" .. time .. "s---")
+				monitor.write("--In-" .. time .. "s--")
 				monitor.setCursorPos(1, 2)
 				monitor.write("-" .. sg.getDialledAddress() .. "-")
 			end
@@ -256,7 +256,7 @@ function lock()
 			monitor.setCursorPos(1, 1)
 			monitor.write("---Idle---")
 			monitor.setCursorPos(1, 2)
-			monitor.write("-Nobody-")
+			monitor.write("--Nobody--")
 			stime = nil
 		end
 	end
