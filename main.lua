@@ -256,7 +256,11 @@ function lock()
 			monitor.setCursorPos(1, 1)
 			monitor.write("---Ready---")
 			monitor.setCursorPos(1, 2)
-			monitor.write("--Waiting--")
+			local status = "Waiting"
+			if fs.exists("/.tentsglock") then
+				status = "Secured"
+			end
+			monitor.write("--" .. status .. "--")
 			stime = nil
 		end
 	end
