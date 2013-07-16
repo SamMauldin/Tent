@@ -263,6 +263,11 @@ function lock()
 			monitor.write("--" .. status .. "--")
 			stime = nil
 		end
+		if fs.exists("/.tentsglock") then
+				setText("Tent - Locked", title)
+		else
+			setText("Tent - Open", title)
+		end
 	end
 end
 
