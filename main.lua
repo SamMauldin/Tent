@@ -227,7 +227,7 @@ function lock()
 			end
 			local addr = sg.getDialledAddress()
 			name = toShort(addr)
-			if sg.isConnected() == "true" then
+			if sg.isConnected() then
 				setText(name .. " connected.", status)
 				monitor.setBackgroundColor(colors.lime)
 				monitor.clear()
