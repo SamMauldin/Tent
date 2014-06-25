@@ -155,7 +155,9 @@ function chat()
 			if string.len(addr) == 7 then
 				print("Trying to dial ".. addr .. ".")
 				setText("Validating...", main)
-				sg.disconnect()
+				if sg.getState() ~= "Idle" then
+					sg.disconnect()
+				end
 				pcall(sg.connect, addr)
 				sleep(3)
 				if sg.getDialledAddress() == addr then
@@ -169,7 +171,9 @@ function chat()
 			end
 			queueClear()
 		elseif cmd[1] == "disconnect" then
-			sg.disconnect()
+			if sg.getState() ~= "Idle" then
+				sg.disconnect()
+			end
 			setText("Disconnected.", main)
 			print("Disconnected.")
 			queueClear()
