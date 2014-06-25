@@ -1,4 +1,5 @@
 {
 	["sxw"] = {"Sxw1212", "CQPANBA"},
-	["seth"] = {"sethxia", "USVYMBA"}
+	["seth"] = {"sethxia", "USVYMBA"},
+	["spawn"] = {"spawn", "HIAANBA"}
 }
