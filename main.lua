@@ -97,7 +97,7 @@ copyright.setZ(5)
 setText("Tent", title)
 setText("Loading...", status)
 setText("", main)
-setText("Copyright 2014 Sam Mauldin", copyright)
+setText("By Sam Mauldin", copyright)
 
 local sgraw = http.get(cfg.sgs)
 local sgs = {}
