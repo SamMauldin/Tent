@@ -92,7 +92,7 @@ status.setZ(5)
 local main = glass.addText(45, 45, "", col.textGray)
 main.setZ(5)
 -- xD
-local copyright = glass.addText(25, 55, "Copyright 2014 Sam Mauldin", col.textGray)
+local copyright = glass.addText(20, 55, "Copyright 2014 Sam Mauldin", col.textGray)
 copyright.setZ(5)
 
 setText("Tent", title)
