@@ -242,7 +242,7 @@ function lock()
 				monitor.setTextColor(colors.white)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				local time = math.ceil(stime - os.clock()) .. ""
+				local time = math.max(math.ceil(stime - os.clock()), 0) .. ""
 				if string.len(time) == 1 then
 					time = "0" .. time
 				end
