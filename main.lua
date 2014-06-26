@@ -91,13 +91,13 @@ local status = glass.addText(23, 35, "", col.textGray)
 status.setZ(5)
 local main = glass.addText(23, 45, "", col.textGray)
 main.setZ(5)
--- xD
-local copyright = glass.addText(23, 55, "Copyright 2014 Sam Mauldin", col.textGray)
+local copyright = glass.addText(23, 55, "", col.textGray)
 copyright.setZ(5)
 
 setText("Tent", title)
 setText("Loading...", status)
 setText("", main)
+setText"Copyright 2014 Sam Mauldin", copyright)
 
 local sgraw = http.get(cfg.sgs)
 local sgs = {}
