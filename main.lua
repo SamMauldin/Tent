@@ -248,7 +248,7 @@ function lock()
 				monitor.setCursorPos(1, 2)
 				monitor.write("  " .. sg.getDialledAddress() .. "  ")
 			end
-			if sg.isInitiator() == "false" then
+			if not sg.isInitiator() then
 				if fs.exists("/.tentsglock") then
 					sg.disconnect()
 				end
