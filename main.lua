@@ -255,7 +255,11 @@ function lock()
 			end
 		else
 			setText("Nobody connected.", status)
-			monitor.setBackgroundColor(colors.red)
+			if fs.exists("./tentsglock") then
+				monitor.setBackgroundColor(colors.red)
+			else
+				monitor.setBackgroundColor(colors.yellow)
+			end
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
 			monitor.write("   Ready   ")
