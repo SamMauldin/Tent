@@ -85,14 +85,14 @@ local right = glass.addBox(166, 19, 1, 52, col.blue, 0.8)
 
 -- Text
 
-local title = glass.addText(80, 25, "", col.textGray)
+local title = glass.addText(23, 25, "", col.textGray)
 title.setZ(5)
-local status = glass.addText(45, 35, "", col.textGray)
+local status = glass.addText(23, 35, "", col.textGray)
 status.setZ(5)
-local main = glass.addText(45, 45, "", col.textGray)
+local main = glass.addText(23, 45, "", col.textGray)
 main.setZ(5)
 -- xD
-local copyright = glass.addText(20, 55, "Copyright 2014 Sam Mauldin", col.textGray)
+local copyright = glass.addText(23, 55, "Copyright 2014 Sam Mauldin", col.textGray)
 copyright.setZ(5)
 
 setText("Tent", title)
