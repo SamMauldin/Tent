@@ -232,9 +232,9 @@ function lock()
 				monitor.setBackgroundColor(colors.lime)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
-				monitor.write("-Connected-")
+				monitor.write(" Connected ")
 				monitor.setCursorPos(1, 2)
-				monitor.write("- " .. sg.getDialledAddress() .. " -")
+				monitor.write("  " .. sg.getDialledAddress() .. "  ")
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.setBackgroundColor(colors.blue)
@@ -246,7 +246,7 @@ function lock()
 				end
 				monitor.write(time .. " to blast")
 				monitor.setCursorPos(1, 2)
-				monitor.write("- " .. sg.getDialledAddress() .. " -")
+				monitor.write("  " .. sg.getDialledAddress() .. "  ")
 			end
 			if sg.isInitiator() == "false" then
 				if fs.exists("/.tentsglock") then
@@ -258,13 +258,13 @@ function lock()
 			monitor.setBackgroundColor(colors.red)
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
-			monitor.write("-  Ready  -")
+			monitor.write("   Ready   ")
 			monitor.setCursorPos(1, 2)
 			local status = "Waiting"
 			if fs.exists("/.tentsglock") then
 				status = "Secured"
 			end
-			monitor.write("- " .. status .. " -")
+			monitor.write("  " .. status .. "  ")
 			stime = nil
 		end
 		if fs.exists("/.tentsglock") then
