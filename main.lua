@@ -237,7 +237,7 @@ function lock()
 				monitor.setCursorPos(1, 2)
 				monitor.write("  " .. sg.getDialledAddress() .. "  ")
 			else
-				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
+				setText("Dialing " .. name .. " - " .. math.max(math.ceil(stime - os.clock()), 0), status)
 				monitor.setBackgroundColor(colors.blue)
 				monitor.setTextColor(colors.white)
 				monitor.clear()
