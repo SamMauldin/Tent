@@ -230,6 +230,7 @@ function lock()
 			if sg.getState() == "Connected" then
 				setText(name .. " connected.", status)
 				monitor.setBackgroundColor(colors.lime)
+				monitor.setTextColor(colors.black)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
 				monitor.write(" Connected ")
@@ -238,6 +239,7 @@ function lock()
 			else
 				setText("Dialing " .. name .. " - " .. math.ceil(stime - os.clock()), status)
 				monitor.setBackgroundColor(colors.blue)
+				monitor.setTextColor(colors.white)
 				monitor.clear()
 				monitor.setCursorPos(1, 1)
 				local time = math.ceil(stime - os.clock()) .. ""
@@ -257,8 +259,10 @@ function lock()
 			setText("Nobody connected.", status)
 			if fs.exists("./tentsglock") then
 				monitor.setBackgroundColor(colors.red)
+				monitor.setTextColor(colors.white)
 			else
 				monitor.setBackgroundColor(colors.yellow)
+				monitor.setTextColor(colors.black)
 			end
 			monitor.clear()
 			monitor.setCursorPos(1, 1)
