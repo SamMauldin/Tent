@@ -314,6 +314,13 @@ function api()
 					["SG_LOC"] = pos,
 					["SG_ID"] = sg.getHomeAddress()
 				})
+			elseif m.SG_CMD == "status" then
+				modem.transmit(SG_CHAN, SG_CHAN, {
+					["SG_RID"] = m.SG_CMD_ID,
+					["SG_STATE"] = sg.getState(),
+					["SG_LOCKED"] = fs.exists("/.tentsglock"),
+					["SG_ID"] = sg.getHomeAddress()
+				})
 			end
 		end
 	end
