@@ -3,5 +3,6 @@
 	["seth"] = {"sethxia", "GQQYMBA"},
 	["spawn"] = {"spawn", "HIAANBA"},
 	["sertexbank"] = {"bank", "GNKANBA"},
-	["sertexlabs"] = {"sertex", "KNKANBA"}
+	["sertexlabs"] = {"sertex", "KNKANBA"},
+	["justync7"] = {"justy", "YSVYMBA"}
 }
