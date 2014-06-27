@@ -19,6 +19,7 @@ local oldPull = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
 local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
+local SG_CHAN = 15814
 
 _G["modem"] = peripheral.wrap(cfg.modem)
 local glass = peripheral.wrap(cfg.glass)
@@ -31,6 +32,8 @@ assert(sg)
 assert(monitor)
 assert(modem)
 assert(master)
+
+modem.open(SG_CHAN)
 
 monitor.setTextScale(2.5)
 monitor.clear()
@@ -299,4 +302,20 @@ function clear()
 	end
 end
 
-parallel.waitForAny(chat, lock, clear)
+local pos = {gps.locate()}
+
+function api()
+	while true do
+		local _, _, c, s, m, d = os.pullEvent("modem_message")
+		if type(m) == "table" and m.SG_CMD and m.SG_CMD_ID then
+			if m.SG_CMD == "locate" then
+				modem.transmit(SG_CHAN, SG_CHAN, {
+					["SG_RID"] = m.SG_CMD_ID,
+					["SG_LOC"] = pos
+				})
+			end
+		end
+	end
+end
+
+parallel.waitForAny(chat, lock, clear, api)
