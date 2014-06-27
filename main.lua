@@ -311,7 +311,8 @@ function api()
 			if m.SG_CMD == "locate" then
 				modem.transmit(SG_CHAN, SG_CHAN, {
 					["SG_RID"] = m.SG_CMD_ID,
-					["SG_LOC"] = pos
+					["SG_LOC"] = pos,
+					["SG_ID"] = sg.getHomeAddress()
 				})
 			end
 		end
