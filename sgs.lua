@@ -6,5 +6,6 @@
 	["sertexlabs"] = {"sertex", "KNKANBA"},
 	["justync7"] = {"justy", "YSVYMBA"},
 	["Sonny9951"] = {"sonny", "DLGYMBA"},
-	["rainbow"] = {"RainbowDash675", "KQQYMBA"}
+	["rainbow"] = {"RainbowDash675", "KQQYMBA"},
+	["carrots"] = {"carrots084", "SSVYMBA""}
 }
