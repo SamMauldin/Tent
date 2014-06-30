@@ -1,6 +1,7 @@
 {
 	["sxw"] = {"Sxw1212", "CQPANBA"},
 	["spawn"] = {"spawn", "HIAANBA"},
+	["walia"] = {"walia6", "ZCPBNBA"},
 	["chrdov"] = {"chrdov", "DYFZMBA"},
 	["sertexbank"] = {"bank", "GNKANBA"},
 	["sertexlabs"] = {"sertex", "KNKANBA"},
