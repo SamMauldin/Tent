@@ -15,11 +15,13 @@ else
 end
 -- End config
 
+local SG_BUILD = 2
+local SG_CHAN = 15814
+
 local oldPull = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
 local updateurl = "https://raw.github.com/Sxw1212/Tent/master/main.lua"
-local SG_CHAN = 15814
 
 _G["modem"] = peripheral.wrap(cfg.modem)
 local glass = peripheral.wrap(cfg.glass)
@@ -321,6 +323,38 @@ function api()
 					["SG_LOCKED"] = fs.exists("/.tentsglock"),
 					["SG_ID"] = sg.getHomeAddress()
 				})
+			elseif m.SG_CMD == "build" then
+				modem.transmit(SG_CHAN, SG_CHAN, {
+					["SG_RID"] = m.SG_CMD_ID,
+					["SG_BUILD"] = SG_BUILD,
+					["SG_ID"] = sg.getHomeAddress()
+				})
+			elseif m.SG_TO and m.SG_TO == sg.getHomeAddress() then
+				if m.SG_CMD == "dial" and m.SG_DIAL then
+					if fs.exists("/.tentsglock") then
+						modem.transmit(SG_CHAN, SG_CHAN, {
+							["SG_RID"] = m.SG_CMD_ID,
+							["SG_RESP"] = "locked",
+							["SG_ID"] = sg.getHomeAddress()
+						})
+					else
+						if sg.getState == "Idle" then
+							pcall(sg.connect, addr)
+							modem.transmit(SG_CHAN, SG_CHAN, {
+								["SG_RID"] = m.SG_CMD_ID,
+								["SG_RESP"] = "success",
+								["SG_STATE"] = sg.getState(),
+								["SG_ID"] = sg.getHomeAddress()
+							})
+						else
+							modem.transmit(SG_CHAN, SG_CHAN, {
+								["SG_RID"] = m.SG_CMD_ID,
+								["SG_RESP"] = "notidle",
+								["SG_ID"] = sg.getHomeAddress()
+							})
+						end
+					end
+				end
 			end
 		end
 	end
