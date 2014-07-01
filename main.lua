@@ -15,7 +15,7 @@ else
 end
 -- End config
 
-local SG_BUILD = 5
+local SG_BUILD = 6
 local SG_CHAN = 15814
 
 local oldPull = os.pullEvent
@@ -194,10 +194,10 @@ function chat()
 		elseif cmd[1] == "stranger" then
 			if fs.exists("/.tentnostrangers") then
 				fs.delete("/.tentnostrangers")
-				setText("StrangerDial Enabled")
+				setText("StrangerDial Enabled", main)
 			else
 				fs.makeDir("/.tentnostrangers")
-				setText("StrangerDial Disabled")
+				setText("StrangerDial Disabled", main)
 			end
 			queueClear()
 		elseif cmd[1] == "shell" then
