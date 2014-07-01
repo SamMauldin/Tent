@@ -15,7 +15,7 @@ else
 end
 -- End config
 
-local SG_BUILD = 2
+local SG_BUILD = 3
 local SG_CHAN = 15814
 
 local oldPull = os.pullEvent
@@ -339,7 +339,7 @@ function api()
 						})
 					else
 						if sg.getState == "Idle" then
-							pcall(sg.connect, addr)
+							pcall(sg.connect, m.SG_DIAL)
 							modem.transmit(SG_CHAN, SG_CHAN, {
 								["SG_RID"] = m.SG_CMD_ID,
 								["SG_RESP"] = "success",
