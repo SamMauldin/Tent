@@ -15,7 +15,7 @@ else
 end
 -- End config
 
-local SG_BUILD = 3
+local SG_BUILD = 4
 local SG_CHAN = 15814
 
 local oldPull = os.pullEvent
@@ -338,7 +338,7 @@ function api()
 							["SG_ID"] = sg.getHomeAddress()
 						})
 					else
-						if sg.getState == "Idle" then
+						if sg.getState() == "Idle" then
 							pcall(sg.connect, m.SG_DIAL)
 							modem.transmit(SG_CHAN, SG_CHAN, {
 								["SG_RID"] = m.SG_CMD_ID,
