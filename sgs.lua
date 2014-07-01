@@ -8,5 +8,6 @@
 	["sertexlabs"] = {"sertex", "KNKANBA"},
 	["mega"] = {"Megolomaniac_Tom", "PKECNBA"},
 	["justync7"] = {"justy", "YSVYMBA"},
-	["rainbow"] = {"RainbowDash675", "KQQYMBA"}
+	["rainbow"] = {"RainbowDash675", "KQQYMBA"},
+	["win7yes"] = {"win", "XNLYMBA"}
 }
