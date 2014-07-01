@@ -15,7 +15,7 @@ else
 end
 -- End config
 
-local SG_BUILD = 4
+local SG_BUILD = 5
 local SG_CHAN = 15814
 
 local oldPull = os.pullEvent
@@ -191,6 +191,15 @@ function chat()
 				setText("Locked.", main)
 			end
 			queueClear()
+		elseif cmd[1] == "stranger" then
+			if fs.exists("/.tentnostrangers") then
+				fs.delete("/.tentnostrangers")
+				setText("StrangerDial Enabled")
+			else
+				fs.makeDir("/.tentnostrangers")
+				setText("StrangerDial Disabled")
+			end
+			queueClear()
 		elseif cmd[1] == "shell" then
 			setText("Running shell, quit to resume.", main)
 			os.pullEvent = oldPull
@@ -331,7 +340,7 @@ function api()
 				})
 			elseif m.SG_TO and m.SG_TO == sg.getHomeAddress() then
 				if m.SG_CMD == "dial" and m.SG_DIAL then
-					if fs.exists("/.tentsglock") then
+					if fs.exists("/.tentsglock") or fs.exists("/.tentnostrangers") then
 						modem.transmit(SG_CHAN, SG_CHAN, {
 							["SG_RID"] = m.SG_CMD_ID,
 							["SG_RESP"] = "locked",
